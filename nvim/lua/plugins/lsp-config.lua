@@ -28,7 +28,7 @@ return {
 				vim.keymap.set("n", "gr", telescope.lsp_references, opts)
 
 				opts.desc = "Goto Definition"
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
 
 				opts.desc = "Goto Type Definitions"
 				vim.keymap.set("n", "gy", telescope.lsp_type_definitions, opts)

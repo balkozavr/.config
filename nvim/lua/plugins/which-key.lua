@@ -4,6 +4,7 @@ return {
 	opts = {
 		mappings = vim.g.have_nerd_font,
 		preset = "helix",
+		show_help = false,
 		spec = {
 			{ "<leader>b", group = "Buffer..." },
 			{ "<leader>c", group = "Code..." },

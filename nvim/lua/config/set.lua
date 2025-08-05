@@ -1,6 +1,7 @@
 vim.o.nu = true
 vim.o.rnu = true
 vim.o.clipboard = ""
+vim.o.winborder = "rounded"
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
@@ -22,7 +23,7 @@ vim.o.backup = false
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.o.incsearch = true
 
 vim.o.termguicolors = true
@@ -31,6 +32,9 @@ vim.o.scrolloff = 8
 
 vim.o.updatetime = 50
 vim.opt.hidden = false
+
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 require("config.autocmds")
 
@@ -66,4 +70,3 @@ vim.diagnostic.config({
 		end,
 	},
 })
-
