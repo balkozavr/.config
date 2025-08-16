@@ -15,7 +15,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local mason_lspconfig = require("mason-lspconfig")
 		local blink_cmp = require("blink.cmp")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -43,60 +42,53 @@ return {
 
 		local capabilities = blink_cmp.get_lsp_capabilities()
 
-		mason_lspconfig.setup({
-			handlers = {
-				gopls = function()
-					lspconfig.gopls.setup({
-						capabilities = capabilities,
-						settings = {
-							gopls = {
-								gofumpt = true,
-								codelenses = {
-									gc_details = false,
-									generate = true,
-									regenerate_cgo = true,
-									run_govulncheck = true,
-									test = true,
-									tidy = true,
-									upgrade_dependency = true,
-									vendor = true,
-								},
-								hints = {
-									assignVariableTypes = true,
-									compositeLiteralFields = true,
-									compositeLiteralTypes = true,
-									constantValues = true,
-									functionTypeParameters = true,
-									parameterNames = true,
-									rangeVariableTypes = true,
-								},
-								analyses = {
-									nilness = true,
-									unusedparams = true,
-									unusedwrite = true,
-									useany = true,
-								},
-								usePlaceholders = true,
-								completeUnimported = true,
-								staticcheck = true,
-								directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-								semanticTokens = true,
-							},
-						},
-					})
-				end,
-				lua_ls = function()
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								diagnostics = {
-									globals = { "vim", "require" },
-								},
-							},
-						},
-					})
-				end,
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					gofumpt = false,
+					codelenses = {
+						gc_details = false,
+						generate = true,
+						regenerate_cgo = true,
+						run_govulncheck = true,
+						test = true,
+						tidy = true,
+						upgrade_dependency = true,
+						vendor = true,
+					},
+					hints = {
+						assignVariableTypes = false,
+						compositeLiteralFields = false,
+						compositeLiteralTypes = false,
+						constantValues = false,
+						functionTypeParameters = false,
+						parameterNames = false,
+						rangeVariableTypes = false,
+					},
+					analyses = {
+						nilness = true,
+						unusedparams = true,
+						unusedwrite = true,
+						useany = true,
+					},
+					usePlaceholders = false,
+					completeUnimported = true,
+					staticcheck = true,
+					directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+					semanticTokens = true,
+				},
+			},
+		})
+
+		lspconfig.lua_ls.setup({
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = {
+						global = { "vim", "require" },
+					},
+				},
 			},
 		})
 	end,

@@ -32,9 +32,11 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>e", function()
-			if not MiniFiles.close() then
-				MiniFiles.open()
-			end
+			local MiniFiles = require("mini.files")
+			local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+			vim.defer_fn(function()
+				MiniFiles.reveal_cwd()
+			end, 0)
 		end, { desc = "Mini Files" })
 	end,
 }
