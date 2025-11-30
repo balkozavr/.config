@@ -44,6 +44,6 @@ vim.keymap.set("v", "<leader>cgs", function()
 end, { desc = "Substitute selection in file" })
 
 vim.keymap.set("n", "<leader>cu", ":s//\\u~/i<CR>", { desc = "Case switched recent substitution" })
-vim.keymap.set("n", "<leader>cgu", ":%s//\\u~/i<CR>", { desc = "Case switched recent substitution" })
+vim.keymap.set("n", "<leader>cgu", ":%s//\\u~/i<CR>", { desc = "Case switched global recent substitution" })
 
 vim.keymap.set("n", "<leader>ct", ":!go mod tidy<CR>", { desc = "Go mod tidy" })

@@ -17,3 +17,26 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		local opts = { buffer = ev.buf, silent = true }
+		local telescope = require("telescope.builtin")
+
+		opts.desc = "Goto References"
+		vim.keymap.set("n", "gr", telescope.lsp_references, opts)
+
+		opts.desc = "Goto Definition"
+		vim.keymap.set("n", "gd", telescope.lsp_definitions, opts)
+
+		opts.desc = "Goto Type Definitions"
+		vim.keymap.set("n", "gy", telescope.lsp_type_definitions, opts)
+
+		opts.desc = "Goto Implementations"
+		vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
+
+		opts.desc = "Code Action"
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	end,
+})
