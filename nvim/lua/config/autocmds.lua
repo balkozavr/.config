@@ -44,6 +44,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gi", telescope.lsp_implementations, opts)
 
 		opts.desc = "Code Action"
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
 	end,
 })
