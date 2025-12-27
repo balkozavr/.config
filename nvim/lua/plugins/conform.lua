@@ -1,8 +1,8 @@
 return {
-	"zapling/mason-conform.nvim",
+	"stevearc/conform.nvim",
 	dependencies = {
 		"williamboman/mason.nvim",
-		"stevearc/conform.nvim",
+		"zapling/mason-conform.nvim",
 	},
 	config = function()
 		local conform = require("conform")
@@ -13,7 +13,7 @@ return {
 
 				go = {
 					"goimports",
-					"golines",
+					"gofumpt",
 				},
 			},
 		})

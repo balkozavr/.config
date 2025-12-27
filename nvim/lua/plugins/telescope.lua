@@ -18,11 +18,6 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
-			defaults = {
-				mappings = {
-					i = { ["<C-j>"] = require("telescope.actions").preview_scrolling_left },
-				},
-			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
@@ -36,8 +31,8 @@ return {
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "File Search" })
 		vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Grep Search" })
-		vim.keymap.set({ "n", "x" }, "gh", vim.lsp.buf.hover, { desc = "Hover Info" })
 		vim.keymap.set("n", "<leader>h", builtin.help_tags, { desc = "Help Search" })
 		vim.keymap.set("n", "<leader>bf", builtin.buffers, { desc = "Buffer Find" })
+		vim.keymap.set("n", "<leader>gf", builtin.git_status, { desc = "Git changed files" })
 	end,
 }

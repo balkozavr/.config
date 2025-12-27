@@ -5,7 +5,6 @@ return {
 	version = "1.*",
 	opts = {
 		signature = { enabled = true },
-		keymap = { preset = "enter" },
 
 		appearance = {
 			nerd_font_variant = "mono",
