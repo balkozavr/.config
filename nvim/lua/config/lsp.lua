@@ -3,5 +3,7 @@ vim.lsp.config("gopls", {
 		["gopls"] = { gofumpt = true },
 	},
 })
-vim.lsp.enable({ "gopls", "golangci_lint_ls" })
-vim.lsp.enable({ "lua_ls", "pyright", "ruff" })
+vim.lsp.enable({ "gopls" })
+vim.lsp.enable({ "pyright", "ruff" })
+vim.lsp.enable({ "ts_ls" })
+vim.lsp.enable({ "lua_ls" })

@@ -1,3 +1,6 @@
+vim.api.nvim_set_hl(0, "SnippetTabstop", {})
+vim.api.nvim_set_hl(0, "SnippetActive", {})
+
 return {
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets" },
@@ -20,6 +23,11 @@ return {
 		},
 
 		fuzzy = { implementation = "prefer_rust_with_warning" },
+
+		keymap = {
+			["<C-e>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-c>"] = { "hide", "fallback" },
+		},
 	},
 	opts_extend = { "sources.default" },
 }

@@ -1,0 +1,10 @@
+font-family = "JetBrainsMono NFM Bold"
+font-size=18
+font-feature = "-calt"
+font-feature = "-liga"
+font-feature = "-dlig"
+theme="Tokyonight Night"
+cursor-text = #11111b
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor

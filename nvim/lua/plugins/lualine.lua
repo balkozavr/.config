@@ -18,6 +18,12 @@ return {
 					sources = { "nvim_workspace_diagnostic", "coc" },
 				},
 			},
+			lualine_c = {
+				{
+					"filename",
+					path = 1,
+				},
+			},
 			lualine_x = {},
 		},
 	},

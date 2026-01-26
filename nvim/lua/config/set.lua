@@ -11,7 +11,7 @@ vim.opt.listchars = { tab = "  " }
 vim.o.list = true
 vim.opt.guicursor = "n-v-c-i:block"
 
-vim.o.smartindent = true
+vim.o.smartindent = false
 vim.o.showmode = false
 vim.g.have_nerd_font = true
 vim.o.cursorline = true

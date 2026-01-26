@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
+    build = ":TSUpdate",
 	branch = "main",
 	opts = {
 		ensure_installed = { "go", "lua" },

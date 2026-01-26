@@ -8,6 +8,7 @@ return {
 		spec = {
 			{ "<leader>b", group = "Buffer..." },
 			{ "<leader>c", group = "Code..." },
+			{ "<leader>g", group = "Git..." },
 		},
 	},
 }

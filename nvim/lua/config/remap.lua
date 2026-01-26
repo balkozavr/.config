@@ -3,9 +3,27 @@ vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", ex
 vim.keymap.set("n", "<leader>w", "<cmd>write<CR>", { desc = "Save File" })
 vim.keymap.set("n", "<leader>q", "<cmd>quit!<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Buffer Delete" })
-vim.keymap.set("n", "<leader>bo", "<cmd>%bd|e#<CR>", { desc = "Buffer Delete Other" })
-vim.keymap.set("n", "<leader>ba", "<cmd>%bd<CR>", { desc = "Buffer Delete All" })
-vim.keymap.set("n", "<leader>o", "<cmd>update<CR> :source<CR>", { desc = "Source File" })
+
+vim.keymap.set("n", "<leader>bo", function()
+	local cur = vim.api.nvim_get_current_buf()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if buf ~= cur and vim.bo[buf].buflisted then
+			if vim.bo[buf].buftype ~= "terminal" then
+				require("mini.bufremove").delete(buf, false)
+			end
+		end
+	end
+end, { desc = "Buffer Delete Other" })
+
+vim.keymap.set("n", "<leader>ba", function()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.bo[buf].buflisted and vim.bo[buf].buftype ~= "terminal" then
+			require("mini.bufremove").delete(buf, false)
+		end
+	end
+end, { desc = "Buffer Delete All" })
+
+vim.keymap.set("n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Source File" })
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Oil" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", [["+y]], { desc = "Yank Clipboard" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>p", [["+p]], { desc = "Paste Clipboard" })
@@ -22,9 +40,10 @@ vim.keymap.set("n", "N", "Nzz", { desc = "Center cursor after checking the previ
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Concat lines inplace" })
 vim.keymap.set("n", "<leader>ce", "oif err != nil {<CR>return nil, err<CR>}<ESC>k$", { desc = "Go iferr" })
 vim.keymap.set("n", "<leader>cx", "<cmd>!go run %<CR>", { desc = "Run go code" })
-vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename" })
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { desc = "Quickfix Next" })
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { desc = "Quickfix Prev" })
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Code Rename" })
+vim.keymap.set("n", "<leader><space>", "<C-^>", { desc = "Alternate file" })
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Quickfix Next" })
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>", { desc = "Quickfix Prev" })
 
 vim.keymap.set("v", "<leader>cs", function()
 	vim.cmd('normal! "zy')
