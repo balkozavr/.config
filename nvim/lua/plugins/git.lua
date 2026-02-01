@@ -3,7 +3,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup({
-
 				signs = {
 					add = { text = "▎" },
 					change = { text = "▎" },
@@ -26,8 +25,8 @@ return {
 
 			vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", {})
 			vim.keymap.set("n", "<leader>gt", "<cmd>Gitsigns toggle_current_line_blame<CR>", {})
-			vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<CR>", {})
-			vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", {})
+			vim.keymap.set("n", "]c", "<cmd>Gitsigns next_hunk<CR>", {})
+			vim.keymap.set("n", "[c", "<cmd>Gitsigns prev_hunk<CR>", {})
 		end,
 	},
 	{

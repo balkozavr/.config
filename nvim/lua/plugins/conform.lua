@@ -18,13 +18,13 @@ return {
 					"gofumpt",
 				},
 
-				javascript = { "prettierd", "prettier" },
-				javascriptreact = { "prettierd", "prettier" },
-				typescript = { "prettierd", "prettier" },
-				typescriptreact = { "prettierd", "prettier" },
-				json = { "prettierd", "prettier" },
-				css = { "prettierd", "prettier" },
-				html = { "prettierd", "prettier" },
+				javascript = { "eslint_d", "prettierd" },
+				javascriptreact = { "eslint_d", "prettierd" },
+				typescript = { "eslint_d", "prettierd" },
+				typescriptreact = { "eslint_d", "prettierd" },
+				json = { "prettierd" },
+				css = { "prettierd" },
+				html = { "prettierd" },
 			},
 		})
 

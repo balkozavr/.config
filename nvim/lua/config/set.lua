@@ -1,6 +1,7 @@
 vim.o.nu = true
 vim.o.rnu = true
 vim.o.clipboard = ""
+vim.opt.fixendofline = false
 vim.o.winborder = "rounded"
 
 vim.o.tabstop = 4

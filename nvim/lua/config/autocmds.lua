@@ -5,7 +5,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "FocusLost", "BufLeave" }, {
 	pattern = "*",
 	command = "silent! update",
 })

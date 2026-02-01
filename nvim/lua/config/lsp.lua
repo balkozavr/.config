@@ -5,5 +5,5 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable({ "gopls" })
 vim.lsp.enable({ "pyright", "ruff" })
-vim.lsp.enable({ "ts_ls" })
+vim.lsp.enable({ "ts_ls", "emmet_ls" })
 vim.lsp.enable({ "lua_ls" })
